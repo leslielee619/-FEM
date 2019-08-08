@@ -1,0 +1,59 @@
+﻿!问题描述 扳手弯曲分析 spanner/wrench，扳手截面宽度是10mm的六方形，在手柄端部施加力为100N，材料为钢，E为207Gpa，泊松比为0.3。求变形与应力分布
+!author:leslie lee
+
+FINISH
+/CLEAR,START
+/TITLE,SPANNER STRESS ANALYSIS
+/UNIT,SI
+*AFUN,DEG    !指定角度单位为度
+EXX=2.07E11    !ASSIGNMENT
+W_HEX=0.01
+W_FLAT=W_HEX*TAN(30)
+S_HANDLE=0.075
+L_HANDLE=0.2
+R_BEND=0.01
+L_ELEMENT=0.0075
+NUMBER=2         !依次分别是弹性模量，六边形宽度，六边形边长，短手柄长度，长手柄长度，弯曲处过渡圆角半径，单元边长，六边形截面，每条边的分段数
+
+/PREP7
+ET,1,SOLID185   !BRICK 8 NODE 185,从单元库定义一个单元类型
+ET,2,PLANE182   !QUAD 4 NODE 182
+MP,EX,1,EXX 
+MP,PRXY,1,0.3
+RPOLY,6,W_FLAT
+K,7,0,0,0 
+K,8,0,0,-S_HANDLE 
+K,9,0,L_HANDLE,-S_HANDLE
+LSTR,7,8 
+LSTR,8,9 !GENERATE STRAIGHT LINE
+LFILLT,7,8,R_BEND   !在78两条线间形成圆角
+LESIZE,(1:6),,,NUMBER,,,,,1  !对线设置网格大小
+AATT,1,,2,0 !AREA ATTRIBUTES设为单元类型2
+AMAP,1,1,3,5  !在面上形成二维映射网格
+ESIZE,L_ELEMENT !设置单元边长
+VDRAG,1,,,,,,7,9,8 !GENERATE V ALONE LINE,两条直线，一条圆弧
+ACLEAR,ALL  !DELETE ALL AREA MESH
+FINISH
+
+/SOL
+ANTYPE,STATIC
+LSEL,S,,,1,6,1    !LSEL,S,,,1  $LSEL,R,,,(2:6) 
+NSLL,S,0  !给节点施加自由度约束,不输入也可以，因为默认为0
+NSEL,S,LOC,X,W_FLAT/2,W_FLAT
+NSEL,R,LOC,Y,L_HANDLE-3*L_ELEMENT,L_HANDLE
+*GET,MIN_Y,NODE,,MNLOC,Y !*GET,NODE_NUM,NODE,0,LOC,Y,MIN  得到了最小的Y坐标
+*GET,MAX_Y,NODE,,MXLOC,Y !获取一堆节点中节点最大最小坐标值的办法
+PRES_VAL=100/(MAX_Y-MIN_Y)
+SF,ALL,PRES,PRES_VAL   !在节点上施加面载荷
+SOLVE
+FINISH
+
+/POST1
+/VIEW,1,1,1,1 !1指在当前窗口，沿坐标(1,1,1)与原点连城的线来显示模型
+PLDISP,2
+/IMAGE,SAVE,PLDISP.BMP  !须在apdl里设置好路径,图片然后就会保存到那里
+PLNSOL,S,EQV,2   !获取von mises应力
+/IMAGE,SAVE,PLNSOL.BMP
+FINISH
+
+!一个二维一个三维单元类型，只需要设置面的单元吗？直接sweep出体，那么不用专门设定三维单元吗？
