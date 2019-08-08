@@ -1,0 +1,11 @@
+
+
+
+ SOLUTION HISTORY INFORMATION FOR JOB: fourlink.mntr                                                                                                                                                                                                                                                       
+ ANSYS RELEASE 19.0                     14:15:26    07/17/2019
+
+  LOAD   SUB-  NO.  NO.    TOTL  INCREMENT    TOTAL         VARIAB 1     VARIAB 2     VARIAB 3
+  STEP   STEP ATTMP ITER   ITER  TIME/LFACT   TIME/LFACT    MONITOR      MONITOR      MONITOR
+                                                             Wall         MxDs         MxPl
+
+     1      1    1     1      1     1.0000       1.0000       2.4157     -0.22246      0.78886E-30

@@ -1,0 +1,80 @@
+/COM,ANSYS RELEASE Release 19.0      BUILD 19.0      UP20171214       13:23:17
+
+ *** ERROR ***                           CP =      13.016   TIME= 13:58:21
+ Element 1, a LINK180 element, has no section or real constant           
+ information defined.                                                    
+
+ *** ERROR ***                           CP =      13.141   TIME= 13:58:26
+ Element 2, a LINK180 element, has no section or real constant           
+ information defined.                                                    
+
+ *** ERROR ***                           CP =      13.156   TIME= 13:58:27
+ Element 3, a LINK180 element, has no section or real constant           
+ information defined.                                                    
+
+ *** ERROR ***                           CP =      13.188   TIME= 13:58:28
+ Element 4, a LINK180 element, has no section or real constant           
+ information defined.                                                    
+
+ *** ERROR ***                           CP =      13.234   TIME= 13:58:29
+ Element 5, a LINK180 element, has no section or real constant           
+ information defined.                                                    
+
+ *** ERROR ***     SUPPRESSED MESSAGE    CP =      13.250   TIME= 13:58:29
+ The model data was checked and there were errors found.                 
+  Please check output or errors file (                                   
+ D:\14682\Documents\ansys_study\case2_fourlink\fourlink.err ) for        
+ messages.                                                               
+
+ *** ERROR ***                           CP =      14.266   TIME= 13:59:00
+ An error occurred while attempting to open the results file             
+ fourlink.rst.                                                           
+
+ *** ERROR ***                           CP =      14.328   TIME= 13:59:04
+ No results file available.                                              
+
+ *** ERROR ***                           CP =      15.953   TIME= 14:00:23
+ An error occurred while attempting to open the results file             
+ fourlink.rst.                                                           
+
+ *** ERROR ***                           CP =      15.984   TIME= 14:00:24
+ No results file available.                                              
+
+ *** WARNING ***                         CP =      18.344   TIME= 14:01:16
+ Command is only functional after a plot                                 
+  has been performed.  - Command ignored.                                
+
+ *** WARNING ***                         CP =      18.344   TIME= 14:01:16
+ Command is only functional after a plot                                 
+  has been performed.  - Command ignored.                                
+
+ *** WARNING ***                         CP =      18.422   TIME= 14:01:59
+ Command is only functional after a plot                                 
+  has been performed.  - Command ignored.                                
+
+ *** WARNING ***                         CP =      18.422   TIME= 14:01:59
+ Command is only functional after a plot                                 
+  has been performed.  - Command ignored.                                
+
+ *** WARNING ***                         CP =      18.969   TIME= 14:02:23
+ Command is only functional after a plot                                 
+  has been performed.  - Command ignored.                                
+
+ *** WARNING ***                         CP =      18.969   TIME= 14:02:23
+ Command is only functional after a plot                                 
+  has been performed.  - Command ignored.                                
+
+ *** WARNING ***                         CP =      19.297   TIME= 14:02:32
+ Command is only functional after a plot                                 
+  has been performed.  - Command ignored.                                
+
+ *** WARNING ***                         CP =      19.297   TIME= 14:02:32
+ Command is only functional after a plot                                 
+  has been performed.  - Command ignored.                                
+
+ *** ERROR ***                           CP =      20.781   TIME= 14:04:52
+ Missing separator between two fields.                                   
+
+ *** ERROR ***                           CP =      20.844   TIME= 14:04:56
+ The above error occurred processing field= 2DFINITSTN180                
+  Line= *SET,_BUTTON,(-999).                                             

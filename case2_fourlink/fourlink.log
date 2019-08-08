@@ -1,0 +1,272 @@
+/BATCH  
+/COM,ANSYS RELEASE Release 19.0      BUILD 19.0      UP20171214       13:23:24
+/input,menust,tmp,''
+/GRA,POWER
+/GST,ON
+/PLO,INFO,3
+/GRO,CURL,ON
+/CPLANE,1   
+/REPLOT,RESIZE  
+WPSTYLE,,,,,,,,0
+/REPLOT,RESIZE  
+!*  
+/NOPR   
+KEYW,PR_SET,1   
+KEYW,PR_STRUC,1 
+KEYW,PR_THERM,0 
+KEYW,PR_FLUID,0 
+KEYW,PR_ELMAG,0 
+KEYW,MAGNOD,0   
+KEYW,MAGEDG,0   
+KEYW,MAGHFE,0   
+KEYW,MAGELC,0   
+KEYW,PR_MULTI,0 
+/GO 
+!*  
+/COM,   
+/COM,Preferences for GUI filtering have been set to display:
+/COM,  Structural   
+!*  
+/PREP7  
+!*  
+ET,1,LINK180
+!*  
+!*  
+!*  
+!*  
+!*  
+!*  
+ETDEL,1 
+!*  
+ET,1,LINK11 
+!*  
+!*  
+ETDEL,1 
+!*  
+ET,1,LINK180
+!*  
+!*  
+!*  
+!*  
+!*  
+!*  
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,EX,1,,295000 
+MPDATA,PRXY,1,,0.3  
+N,1,0,0,0,,,,   
+N,2,400,0,0,,,, 
+N,3,400,300,0,,,,   
+N,4,0,300,0,,,, 
+FLST,2,2,1  
+FITEM,2,1   
+FITEM,2,2   
+E,P51X  
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+FLST,2,2,1  
+FITEM,2,2   
+FITEM,2,3   
+E,P51X  
+FLST,2,2,1  
+FITEM,2,3   
+FITEM,2,4   
+E,P51X  
+FLST,2,2,1  
+FITEM,2,1   
+FITEM,2,2   
+E,P51X  
+FLST,2,2,1  
+FITEM,2,1   
+FITEM,2,3   
+E,P51X  
+FINISH  
+/SOL
+FLST,2,1,1,ORDE,1   
+FITEM,2,1   
+!*  
+/GO 
+D,P51X, , , , , ,UX,UY, , , ,   
+FLST,2,1,1,ORDE,1   
+FITEM,2,4   
+!*  
+/GO 
+D,P51X, , , , , ,UX, , , , ,
+FLST,2,1,1,ORDE,1   
+FITEM,2,4   
+!*  
+/GO 
+D,P51X, , , , , ,UX,UY, , , ,   
+FLST,2,1,1,ORDE,1   
+FITEM,2,2   
+!*  
+/GO 
+D,P51X, , , , , ,UY, , , , ,
+FLST,2,1,1,ORDE,1   
+FITEM,2,3   
+!*  
+/GO 
+F,P51X,FY,-25000
+FLST,2,1,1,ORDE,1   
+FITEM,2,2   
+!*  
+/GO 
+F,P51X,FX,2000  
+/STATUS,SOLU
+SOLVE   
+FINISH  
+/POST1  
+SET,LIST
+SET,LIST
+/SHOW,WIN32C
+FINISH  
+/AUX12  
+FINISH  
+/PREP7  
+FDELE,ALL,ALL   
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+FLST,2,5,2,ORDE,2   
+FITEM,2,1   
+FITEM,2,-5  
+EDELE,P51X  
+!*  
+ETDEL,1 
+!*  
+ET,5,LINK11 
+!*  
+ETDEL,5 
+!*  
+ET,1,LINK11 
+!*  
+!*  
+ET,2,2D finit stn 180   
+!*  
+ETDEL,1 
+!*  
+ETDEL,6 
+!*  
+ET,1,LINK1  
+!*  
+!*  
+!*  
+!*  
+!*  
+R,1,100 
+!*  
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDE,EX,1   
+MPDE,PRXY,1 
+MPDATA,EX,1,,2.95E+005  
+MPDATA,PRXY,1,,0.3  
+FLST,2,2,1  
+FITEM,2,1   
+FITEM,2,2   
+E,P51X  
+FLST,2,2,1  
+FITEM,2,2   
+FITEM,2,3   
+E,P51X  
+FLST,2,2,1  
+FITEM,2,3   
+FITEM,2,4   
+E,P51X  
+FLST,2,2,1  
+FITEM,2,1   
+FITEM,2,3   
+E,P51X  
+FLST,2,1,1,ORDE,1   
+FITEM,2,1   
+!*  
+/GO 
+D,P51X, , , , , ,ALL, , , , ,   
+FLST,2,1,1,ORDE,1   
+FITEM,2,2   
+!*  
+/GO 
+D,P51X, , , , , ,UY, , , , ,
+FLST,2,1,1,ORDE,1   
+FITEM,2,4   
+!*  
+/GO 
+D,P51X, , , , , ,ALL, , , , ,   
+FLST,2,1,1,ORDE,1   
+FITEM,2,4   
+!*  
+/GO 
+D,P51X, , , , , ,ALL, , , , ,   
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+FLST,2,1,1,ORDE,1   
+FITEM,2,3   
+!*  
+/GO 
+F,P51X,FY,-25000
+FLST,2,1,1,ORDE,1   
+FITEM,2,2   
+!*  
+/GO 
+F,P51X,FX,2000  
+/AUTO,1 
+/REP,FAST   
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+FINISH  
+/SOL
+/STATUS,SOLU
+SOLVE   
+FINISH  
+/POST1  
+!*  
+/EFACET,1   
+PLNSOL, U,SUM, 0,1.0
+!*  
+/SHRINK,0   
+/ESHAPE,1.0 
+/EFACET,1   
+/RATIO,1,1,1
+/CFORMAT,32,0   
+/REPLOT 
+!*  
+!*  
+PRNSOL,U,COMP   
+/USER,  1   
+/FOC,   1,   181.173181372    ,   154.910364986    ,   0.00000000000
+/REPLO  
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST,  1,   232.909457911  
+/ANG,   1,   89.1000000000  
+/REPLO  
+/DIST,  1,   206.875916321  
+/ANG,   1,   12.6000000000  
+/REPLO  
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST,  1,   168.188544102  
+/ANG,   1,   6.30000000000  
+/REPLO  
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST,  1,   219.333346018  
+/ANG,   1,   1.20000000000  
+/REPLO  
+SAVE
+FINISH  
+! /EXIT,NOSAV   
