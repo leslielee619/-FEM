@@ -1,0 +1,26 @@
+/BATCH  
+/COM,ANSYS RELEASE Release 19.0      BUILD 19.0      UP20171214       20:57:19
+/input,menust,tmp,''
+/GRA,POWER
+/GST,ON
+/PLO,INFO,3
+/GRO,CURL,ON
+/CPLANE,1   
+/REPLOT,RESIZE  
+WPSTYLE,,,,,,,,0
+/POST26 
+FINISH  
+/PREP7  
+FINISH  
+/SOL
+!*  
+!*  
+ANTYPE,2
+!*  
+!*  
+FINISH  
+/POST1  
+SET,LIST
+SET,LIST
+FINISH  
+! /EXIT,NOSAV   

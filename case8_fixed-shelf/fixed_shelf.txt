@@ -1,0 +1,69 @@
+!固定支架受力分析。问题描述：带孔支架左端面固定，圆环面受载荷500N，材料为钢，E为210GPa，泊松比为0.3，求其变形与应力分布。
+!实体静力学
+!目前仍不会批处理，以及输出文件。一会练习数组。
+!前期建模太费劲，不如直接从导入建模文件，然后再分析
+!X,Y,Z;WX,WY,WZ
+FINISH
+/CLEAR,START
+/TITLE,FIXED-SHELF
+/UNIT,SI
+X1=-50
+X2=50
+Y1=50
+Y2=-50
+Z1=10
+Z2=-10
+/PREP7
+ET,1,SOLID185  !BRICK 8NODE  brick三维 quad二维
+MP,EX,1,2.1E5
+MP,PRXY,1,0.3
+X1=-50
+X2=50
+Y1=50
+Y2=-50
+Z1=10
+Z2=-10
+BLOCK,X1,X2,Y1,Y2,Z1,Z2
+X1=-50
+X2=-75
+Y1=50
+Y2=-50
+Z1=60
+Z2=-60
+BLOCK,X1,X2,Y1,Y2,Z1,Z2
+WPOFFS,,,20  !WPCSYS
+CYLIND,25,0,-50,0  !CYL4,0,0,25,,25,,-50
+VSBV,1,3
+K,30,0,0,20
+CIRCLE,30,35
+ADRAG,25,26,27,28,,,24    !这是看了图才选出来的，实际中该怎么选点呢？
+ASEL,S,,,1,2
+ASEL,A,,,13,14
+CM,YUAN_ZHU,AREA
+ALLSEL
+VSBA,ALL,YUAN_ZHU
+VGLUE,ALL
+ESIZE,2
+VSWEEP,ALL,,,1
+FINISH
+
+/SOL
+NSEL,S,LOC,X,-75
+D,ALL,ALL,0 
+ALLSEL
+ASEL,S,LOC,Z,10    !需要理解wp与csys
+ASEL,R,,,24  !mistake  柱坐标三个方向表示是径向X，周向角度Y，轴向Z
+NSLA,R,1
+*GET,NUMBER,NODE,0,COUNT
+F,ALL,FZ,-500/NUMBER
+ALLSEL
+SOLVE
+FINISH
+
+/POST1
+/VIEW,1,1,1,1   !1指在当前窗口，沿坐标(1,1,1)与原点连城的线来显示模型
+PLDISP,2
+/IMAGE,SAVE,PLDISP.BMP  !须在apdl里设置好路径,图片然后就会保存到那里
+PLNSOL,S,EQV,2   !获取von mises应力
+/IMAGE,SAVE,PLNSOL.BMP
+FINISH
