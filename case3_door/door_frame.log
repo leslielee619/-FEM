@@ -1,0 +1,119 @@
+/BATCH  
+/COM,ANSYS RELEASE Release 19.0      BUILD 19.0      UP20171214       16:43:40
+/input,menust,tmp,''
+/GRA,POWER
+/GST,ON
+/PLO,INFO,3
+/GRO,CURL,ON
+/CPLANE,1   
+/REPLOT,RESIZE  
+WPSTYLE,,,,,,,,0
+/REPLOT,RESIZE  
+/PREP7  
+!*  
+ET,1,BEAM3  
+!*  
+/NOPR   
+KEYW,PR_SET,1   
+KEYW,PR_STRUC,1 
+KEYW,PR_THERM,0 
+KEYW,PR_FLUID,0 
+KEYW,PR_ELMAG,0 
+KEYW,MAGNOD,0   
+KEYW,MAGEDG,0   
+KEYW,MAGHFE,0   
+KEYW,MAGELC,0   
+KEYW,PR_MULTI,0 
+/GO 
+!*  
+/COM,   
+/COM,Preferences for GUI filtering have been set to display:
+/COM,  Structural   
+!*  
+!*  
+!*  
+!*  
+!*  
+R,/PNUM 
+/REPLOT,RESIZE  
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+RDEL,1  
+R,2,6.8e-4,6.5e-7   
+! Rm
+/pnum   
+/PNUM,R 
+/PNUM,REAL  
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+!*  
+MPTEMP,,,,,,,,  
+MPTEMP,1,0  
+MPDATA,EX,1,,3.0e11 
+MPDATA,PRXY,1,,0
+N,1,0,0.96,,,,, 
+N,2,1.44,0.96,,,,,  
+N,3,0,0,,,,,
+N,4,1.44,0,,,,, 
+FLST,2,2,1  
+FITEM,2,1   
+FITEM,2,2   
+E,P51X  
+FLST,2,2,1  
+FITEM,2,1   
+FITEM,2,3   
+E,P51X  
+FLST,2,2,1  
+FITEM,2,2   
+FITEM,2,4   
+E,P51X  
+FLST,2,1,1,ORDE,1   
+FITEM,2,3   
+!*  
+/GO 
+D,P51X, , , , , ,ALL, , , , ,   
+FLST,2,1,1,ORDE,1   
+FITEM,2,4   
+!*  
+/GO 
+D,P51X, , , , , ,ALL, , , , ,   
+FLST,2,1,1,ORDE,1   
+FITEM,2,1   
+!*  
+/GO 
+F,P51X,FX,3000  
+FLST,2,1,2,ORDE,1   
+FITEM,2,1   
+SFBEAM,P51X,1,PRES,4167,4167, , , , ,0  
+FINISH  
+/SOL
+/STATUS,SOLU
+SOLVE   
+FINISH  
+/PREP7  
+!*  
+elist,real  
+elist,all,1 
+R,1,6.8e-4,6.5e-7   
+FINISH  
+/SOL
+/STATUS,SOLU
+SOLVE   
+FINISH  
+/POST1  
+!*  
+/EFACET,1   
+PLNSOL, U,SUM, 0,1.0
+SAVE
+FINISH  
+! /EXIT,NOSAV   

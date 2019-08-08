@@ -1,0 +1,37 @@
+/COM,ANSYS RELEASE Release 19.0      BUILD 19.0      UP20171214       16:43:32
+
+ *** WARNING ***                         CP =       8.375   TIME= 16:57:56
+ RM is not a recognized PREP7 command, abbreviation, or macro.           
+  This command will be ignored.                                          
+
+ *** WARNING ***                         CP =       8.422   TIME= 16:59:17
+ Unknown /PNUM label = .  The /PNUM command is ignored.                  
+
+ *** WARNING ***                         CP =       8.438   TIME= 17:00:57
+ Unknown /PNUM label = R.  The /PNUM command is ignored.                 
+
+ *** ERROR ***                           CP =      17.562   TIME= 17:08:20
+ This function requires defined components.                              
+  No components are currently defined.                                   
+
+ *** ERROR ***                           CP =      20.203   TIME= 17:10:50
+ Real constant set 1 undefined but referenced by element 1.              
+
+ *** ERROR ***                           CP =      21.312   TIME= 17:11:15
+ Real constant set 1 undefined but referenced by element 2.              
+
+ *** ERROR ***                           CP =      21.375   TIME= 17:11:22
+ Real constant set 1 undefined but referenced by element 3.              
+
+ *** ERROR ***                           CP =      21.422   TIME= 17:11:27
+ The model data was checked and there were errors found.                 
+  Please check output or errors file (                                   
+ D:\14682\Documents\ansys_study\case3\door_frame.err ) for messages.     
+
+ *** WARNING ***                         CP =      21.984   TIME= 17:16:30
+ Specified range of 0 to 0 is not permitted.  The ELIST command is       
+ ignored.                                                                
+
+ *** WARNING ***                         CP =      22.766   TIME= 17:23:24
+ Zero thickness element 1 may result in wrong thermal or bending stress. 
+  Check real constant table 1.                                           
