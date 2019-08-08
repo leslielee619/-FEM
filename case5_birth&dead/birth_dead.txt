@@ -1,0 +1,63 @@
+！生气了小心使用OD破解了你sublime；最后还是修改了hosts再输入证书
+
+FINISH
+/CLEAR,START
+
+/PREP7
+ET,1,LINK180   !设置单元类型为link180
+R,1,1          !指定该单元类型的横截面面积为1
+MP,EX,1,30E6 $MP,EX,2,30E6  !设置材料1和2的弹性模量 
+MP,PRXY,1,0.3 $MP,PRXY,2,0.3 !泊松比
+MP,ALPX,1,0.00005   $MP,ALPX,2,0.00005 !热膨胀系数
+MP,REFT,2,100 !参考温度
+!CREATE NODE
+N,1,0  $N,4,10 
+FILL  !在已有的两个节点之间生成节点
+!CREATE ELEMENT
+E,1,2   !连接节点1与2生成一个单元
+EGEN,3,1,-1  !每次复制前一个单元，最后得到编号为3的单元
+!SET THE DISPLACEMENT OF THE NODE
+D,1,ALL,,,4,3  !在节点1施加自由度（位移）约束，且对节点4也如此设置DOF。从节点1增大到节点4，增量为3。
+D,ALL,UZ   !约束所有节点Z方向的位移
+FINISH
+
+/SOLU
+ANTYPE,0    !静态分析,0或者STATIC
+NLGEOM,ON !打开大变形效应，即考虑几何非线性 
+NROPT,FULL !设定牛顿－拉夫森选项
+OUTPR,BASIC,ALL
+TREF,0         !设置参考温度为0度
+TUNIF,100      !对所有节点施加100度
+SOLVE
+FINISH
+/POST1
+PRESOL,EPTH
+FINISH
+
+/SOLU
+EKILL,2
+SOLVE
+FINISH
+/POST1
+PRESOL,EPTH
+FINISH
+
+/SOLU
+EALIVE,2
+MPCHG,2,2   !将编号为2的单元的材料改为第二种
+SOLVE
+FINISH
+/POST1
+PRESOL,EPTH  
+FINISH
+
+/SOLU
+TUNIF,0
+SOLVE
+FINISH
+/POST1
+*GET,D,ELEM3,ALL,EPTH,X
+FINISH
+
+
+!如何把应力数据输出为txt格式或者其他
