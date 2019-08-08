@@ -1,0 +1,47 @@
+!leslie lee我现在还处在跟着实例再写apdl的地步
+!我现在就是有一个疑问在apdl下，已知一个单元如何知道其有没有实常数或有几个实常数，且怎么排列。
+
+!带孔板应力分析 问题描述：
+!板厚20mm，左边固定，右边受载荷20N/mm，材料为钢，E为210Gpa
+!泊松比为0.3，求其变形与应力分布。
+
+FINISH
+/CLEAR,START
+/TITLE,PLANE STRESS ANALYSIS
+/PREP7
+/UNIT,SI   !国际单位制，长度为米。或者你也可以不设置，但在全文统一单位即可
+ET,1,PLANE183   !单元类型为solid quad 8node 183
+R,1,0.02
+MP,EX,1,2.1E11 $MP,PRXY,1,0.3
+BLC5,0,0,0.2,0.1
+CYL4,0,0,0.02
+ASBA,1,2      !不知如何将关键点编号重新排列，所以生成模型的顺序要注意,目前生成1~8关键点
+!接下来划分网格
+K,9,-0.1,0 $K,10,0.1,0 
+L,9,10    !由关键点创建线
+ASBL,3,9 !原来一个圆是由四条线构成的,将第三个面由第九条线分割为两个面
+LESIZE,ALL,,,15,,,,,1  !将面用线划开以后，面从开始计数，意思是现在只有两个面1与2
+AMESH,1 $AMESH,2  !终于把网格划分好了。by corner不能用，不知道为什么
+FINISH
+
+!接下来施加载荷
+/SOL
+ANTYPE,0
+DL,10,1,ALL $DL,15,2,ALL 
+SFL,11,PRES,-1E6  $SFL,14,PRES,1E6
+SOLVE
+FINISH
+
+/POST1
+PLDISP,2
+/IMAGE,SAVE,D:/14682/Documents/M_APDL/PLDISP.BMP  !不知道为什么会出来警告,如果不加文件位置的话就不会有警告了
+PLNSOL,S,EQV,2
+/IMAGE,SAVE,D:/14682/Documents/M_APDL/PLNSOL.BMP
+PLESOL,S,EQV,2
+/IMAGE,SAVE,D:/14682/Documents/M_APDL/PLESOL.BMP
+FINISH
+
+
+
+
+
